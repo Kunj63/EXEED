@@ -32,7 +32,7 @@
   }
   
   .login,
-  .signup {
+  .sign-up {
     padding: 10px 20px;
     background-color: rgb(37, 87, 167);
     color: #fff;
@@ -41,8 +41,8 @@
     cursor: pointer;
   }
   
-  .signup {
-    margin-top: 5px;
+  .sign-up {
+    margin-bottom: 5px;
   }
   
   /* Additional Styles */

@@ -1,27 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 const Login = () => {
-    
-    function handleLogin() {
-        console.log("Login button clicked");
+  const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+ 
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.get("http://localhost:4000/users");
+        console.log(response);
+      const user = response.data.find((userData)=>userData.name === name && userData.password === password);
+        if (user) {
+        console.log("Login successful");
+        
+        // Redirect to the homepage or any other desired page
+        navigate("/home", {state: {username: name}});
+      } else {
+        alert("Invalid username or password");
+        console.error("Login failed");
+        // Handle login failure, e.g., show an error message
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      // Handle login error, e.g., show an error message
     }
+  };
 
-    return (
-        <div id="logincard" className="loginCard">
-            <h1>Login</h1>
-                <div id="inputs" className="inputs">
-                   <input placeholder="Enter your Username" className="nameInput" type="text"/>
-                   <input placeholder="Enter your Password" className="passwordInput" type="password" />
-        </div>
-        <div className="buttons">
-        <button className="login" onClick={handleLogin}>Login</button>
-        <button className="sign-up">Sign Up</button>
+  const handleSignUp = () => {
+    navigate("/signup");
+  };
 
-
-        </div>
+  return (
+    <div id="loginCard" className="loginCard">
+      <h1>Login</h1>
+      <div id="inputs" className="inputs">
+        <input
+          placeholder="Enter your Name"
+          className="nameInput"
+          type="text"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          placeholder="Enter your Password"
+          className="passwordInput"
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      <div className="buttons">
+        <button className="login" onClick={handleLogin}>
+          Login
+        </button>
+        <button className="signup" onClick={handleSignUp}>
+          Sign Up
+        </button>
+        Don't have an account?
+      </div>
     </div>
-    )
-}
+  );
+};
 
 export default Login;
