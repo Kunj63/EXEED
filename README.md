@@ -1,3 +1,49 @@
+# EXEED - MERN Stack Job Portal
+
+Welcome to the Indeed job portal clone developed using the MERN stack! This project replicates core functionalities of the popular job portal, Indeed. Users can search for jobs, post job listings, and manage applications.
+
+## Features
+
+- User registration and authentication
+- Job posting and search functionality
+- Application tracking system
+- Responsive user interface
+- Integration with MongoDB for data storage
+
+## Getting Started
+
+To get started with the development of the Indeed clone, follow the steps outlined in the [Getting Started](./docs/GETTING_STARTED.md) guide.
+
+## Technologies Used
+
+- **Backend:**
+  - Node.js
+  - Express.js
+  - MongoDB
+
+- **Frontend:**
+  - React.js
+  - Redux (or React Context) for state management
+
+- **Deployment:**
+  - vercel
+ 
+## Setup
+
+Follow the steps below to set up and run the Indeed job portal on your local machine.
+
+### Prerequisites
+
+Before you begin, make sure you have the following installed:
+
+- Node.js: [Download Node.js](https://nodejs.org/)
+- npm (Node Package Manager): Installed with Node.js
+
+### Clone the Repository
+- git clone https://github.com/Kunj63/EXEED.git
+- cd EXEED
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
