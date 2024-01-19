@@ -12,13 +12,13 @@ mongoose.connect(uri, {
   useUnifiedTopology: true,
 })
   .then(() => {
-    console.log('Connected to yourDB-name database');
+    console.log('Connected to yourDB-indeedDB');
   })
   .catch((err) => {
     console.log('Error connecting to database:', err);
   });
 
-// Define User schema
+// Define User schema(model)
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -38,12 +38,12 @@ const User = mongoose.model('users', UserSchema);
 app.use(express.json());
 app.use(cors());
 
-// API endpoint for user registration
+      // API endpoint for user registration
 app.post('/register', async (req, res) => {
   try {
     const { name, password } = req.body;
 
-    // Check if user already exists
+           // Check if user already exists
     const existingUser = await User.findOne({ name });
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
